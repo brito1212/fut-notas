@@ -1,8 +1,8 @@
-from server import db
+from app import db
 
 
 class Jogador(db.Model):
-    __tablename__ = "Jogadores"
+    __tablename__ = "jogadores"
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(50), unique=True, nullable=False)
     gols = db.Column(db.Integer, default=0)
@@ -24,6 +24,6 @@ class Jogador(db.Model):
     nota = db.Column(db.Integer, default=0)
 
     def calcular_nota(self):
-        nota = (self.gols * 3 + self.assistencias * 2 + self.passes_corretos) / 6
+        nota = (self.gols * 3 + self.assists * 2 + self.passescertos) / 6
         self.nota = nota
         return nota

@@ -1,6 +1,6 @@
 import psycopg2 as psy
 
-DB_URL = "postgresql://postgres:1234@localhost:5432/Futnotas"
+DB_URL = "postgresql://postgres:user123@localhost:5432/Futnotas"
 
 
 def init():
@@ -8,7 +8,7 @@ def init():
         database="Futnotas",
         host="localhost",
         user="postgres",
-        password="1234",
+        password="user123",
         port="5432",
     )
     cur = conn.cursor()
@@ -16,7 +16,7 @@ def init():
     if conn.status == 1:
         cur.execute(
             """
-                    CREATE TABLE IF NOT EXISTS Jogadores (
+                    CREATE TABLE IF NOT EXISTS jogadores (
                         id SERIAL PRIMARY KEY,
                         nome VARCHAR(50),  
                         clube VARCHAR(50),
