@@ -8,14 +8,15 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - 5000:5000
+    depends_on:
+      - db
 
-  postgres:
+  db:
     image: postgres
     restart: always
-    # volumes:
-    #   - ./01-basegeografica.sql:/docker-entrypoint-initdb.d/01-basegeografica.sql
-    #   - ./02-basegeografica.sql:/docker-entrypoint-initdb.d/02-basegeografica.sql
     environment:
-      POSTGRES_PASSWORD: "1234"
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "Futnotas"
+      POSTGRES_PASSWORD: "user123"
     ports:
-      - "5433:5433"
+      - "5432:5432"
