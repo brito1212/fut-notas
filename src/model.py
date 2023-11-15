@@ -1,4 +1,4 @@
-from app import db
+from app_settings import db
 
 
 class Jogador(db.Model):

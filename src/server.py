@@ -1,6 +1,6 @@
 from flask import request, jsonify
 from model import Jogador
-from app import app, db
+from app_settings import app, db
 from insert_data import insert_csv
 
 
@@ -38,4 +38,4 @@ def obter_nota(nome):
         return jsonify({'message': 'Jogador não encontrado'}), 404
     
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0',port=5000)

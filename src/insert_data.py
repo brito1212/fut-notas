@@ -1,7 +1,7 @@
 import pandas as pd
 import psycopg2 as psy
 from model import Jogador
-from app import app, db
+from app_settings import app, db
 
 app.app_context()
 
