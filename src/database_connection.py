@@ -20,6 +20,7 @@ def init():
                         id SERIAL PRIMARY KEY,
                         nome VARCHAR(50),  
                         clube VARCHAR(50),
+                        rodada SMALLINT,
                         gols SMALLINT,
                         assists SMALLINT,
                         passescertos SMALLINT,
@@ -37,7 +38,8 @@ def init():
                         faltascometidas SMALLINT,
                         faltassofridas SMALLINT,
                         interceptacoes SMALLINT,
-                        desarmes SMALLINT                  
+                        desarmes SMALLINT,
+                        nota FLOAT              
                     );
                     """
         )
