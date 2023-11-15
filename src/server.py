@@ -1,10 +1,12 @@
 from flask import request, jsonify
 from model import Jogador
 from app import app, db
+from insert_data import insert_csv
 
 
 @app.route("/")
 def homepage():
+    insert_csv(r'c:\Users\JorgeFerreira\Downloads\dados.csv')
     return "A API esta no ar!"
 
 
@@ -21,8 +23,7 @@ def adicionar_stats():
         return jsonify({"message": "Stats adicionados com sucesso!"})
 
     jogador = Jogador(**data)
-    jogador_nota = jogador.calcular_nota()
-    jogador.nota = jogador_nota
+    jogador.calcular_nota()
     db.session.add(jogador)
     db.session.commit()
     return jsonify({"message": f"{jogador.nome}-> {jogador.nota}"})
