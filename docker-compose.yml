@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  futnotas:
+    image: futnotas
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 5000:5000
+
+  postgres:
+    image: postgres
+    restart: always
+    # volumes:
+    #   - ./01-basegeografica.sql:/docker-entrypoint-initdb.d/01-basegeografica.sql
+    #   - ./02-basegeografica.sql:/docker-entrypoint-initdb.d/02-basegeografica.sql
+    environment:
+      POSTGRES_PASSWORD: "1234"
+    ports:
+      - "5433:5433"
